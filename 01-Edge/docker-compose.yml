@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  edge-app:
+    build:
+      context: .
+    env_file:
+      - dev.env
+      - local.env

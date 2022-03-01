@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.neoception.workshop.messages";
+option java_outer_classname = "WorkshopMessagesProto";
+
+package com.neoception.workshop.messages;
+
+// ============================================================================
+// General
+// ============================================================================
+message Header {
+  string id = 1;
+  google.protobuf.Timestamp timestamp = 5;
+}
+// ============================================================================
+
+
+// ============================================================================
+// Scan
+// ============================================================================
+message Scan {
+  Header header = 1;
+  Body body = 2;
+
+  message Body {
+    oneof body {
+      Box box = 1;
+    }
+  }
+
+  message Box {
+    string box_id = 1;
+  }
+}
+// ============================================================================
