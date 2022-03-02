@@ -13,12 +13,6 @@ RUN jar -xf /root/app/target/edge-app-0.0.1-SNAPSHOT.jar
 FROM eclipse-temurin:17
 RUN mkdir /app
 
-################# SECURITY ####################
-# RUN addgroup -g 1001 -S appuser && adduser -u 1001 -S appuser -G appuser
-# RUN chown -R appuser:appuser /app
-# RUN chown -R appuser:appuser /tmp
-# USER appuser
-
 COPY --from=builder /extracted/BOOT-INF/lib /app/lib
 COPY --from=builder /extracted/META-INF /app/META-INF
 COPY --from=builder /extracted/BOOT-INF/classes /app

@@ -9,7 +9,7 @@
 - It then builds a structured message to send those events to the cloud microservices through a Kafka topic.
 - See file `dev.env` for application configurations.
 - Overload sensitive configurations adding a `local.env` file (not versioned!).
-- See file `workshop.proto` for gRPC message contracts definitions.
+- See file `workshop.proto` for gRPC message contracts' definitions.
 
 ## Debug / Development
 
