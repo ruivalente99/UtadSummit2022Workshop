@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:12.3-alpine
+    ports:
+      - 7100:5432
+    env_file:
+      - dev.env
+  bs:
+    build:
+      context: .
+    ports:
+      - 7101:7001
+    env_file:
+      - dev.env
+      - local.env
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://db:5432/postgres'
